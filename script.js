@@ -28,14 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Simple interaction for buy button
-    const buyButtons = document.querySelectorAll('.btn-buy');
-    buyButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            const productName = button.parentElement.querySelector('h3').innerText;
-            alert(`¡Excelente elección! Has añadido ${productName} a tu carrito.`);
-        });
-    });
+
 
     // Contact form submission
     const contactForm = document.getElementById('contact-form');
@@ -78,4 +71,112 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
+
+    // Product Data for Modal
+    const productData = {
+        golden: {
+            title: "Golden Ale Clásica",
+            price: "$1.200",
+            description: `
+                <p>Nuestra Golden Ale es la puerta de entrada perfecta al mundo de la cerveza artesanal. Elaborada con maltas pálidas seleccionadas, ofrece un color dorado brillante y una espuma blanca persistente.</p>
+                <p>En boca se percibe un equilibrio sutil entre el dulzor de la malta y un amargor muy suave. Es extremadamente refrescante, ideal para tardes de sol o para acompañar platos ligeros.</p>
+                <p><strong>Notas de cata:</strong> Cereales, pan fresco y un toque floral muy ligero al final.</p>
+            `,
+            images: [
+                'assets/img/Birratirada.jpeg',
+                'assets/img/Pinta.jpeg',
+                'assets/img/PintaMano.jpeg',
+                'assets/img/Birra.jpeg'
+            ]
+        },
+        ipa: {
+            title: "IPA del Sur",
+            price: "$1.500",
+            description: `
+                <p>Para los amantes de las sensaciones intensas. Nuestra India Pale Ale es una explosión de lúpulo en cada trago. Utilizamos técnicas de Dry-Hopping para potenciar los aromas sin saturar el paladar.</p>
+                <p>Presenta un carácter cítrico y resinoso muy marcado, típico de los lúpulos de nuestra región. Su cuerpo es medio y tiene un final seco que te invita a seguir bebiendo.</p>
+                <p><strong>Notas de cata:</strong> Pomelo, pino, maracuyá y un amargor firme y elegante.</p>
+            `,
+            images: [
+                'assets/img/Birras.jpeg',
+                'assets/img/Pinta.jpeg',
+                'assets/img/PintaMano.jpeg',
+                'assets/img/neon.jpeg'
+            ]
+        },
+        stout: {
+            title: "Stout Nocturna",
+            price: "$1.400",
+            description: `
+                <p>Nuestra cerveza más premiada. Una Stout de cuerpo robusto y color negro profundo, inspirada en las noches estrelladas de la cordillera.</p>
+                <p>La combinación de cebadas tostadas y maltas chocolate le otorgan una complejidad única. Es una cerveza cremosa, sedosa y extremadamente reconfortante.</p>
+                <p><strong>Notas de cata:</strong> Café espresso, chocolate amargo, regaliz y un sutil fondo ahumado.</p>
+            `,
+            images: [
+                'assets/img/Birratirada2.jpeg',
+                'assets/img/Pinta.jpeg',
+                'assets/img/PintaMano.jpeg',
+                'assets/img/Birras.jpeg'
+            ]
+        }
+    };
+
+    const modal = document.getElementById('product-modal');
+    const modalClose = document.getElementById('modal-close');
+    const modalOverlay = modal ? modal.querySelector('.modal-overlay') : null;
+
+    const openModal = (productId) => {
+        const data = productData[productId];
+        if (!data) return;
+
+        document.getElementById('modal-title').innerText = data.title;
+        document.getElementById('modal-price').innerText = data.price;
+        document.getElementById('modal-description').innerHTML = data.description;
+
+        const mainImg = document.getElementById('main-modal-img');
+        mainImg.style.backgroundImage = `url('${data.images[0]}')`;
+
+        const thumbGrid = document.getElementById('modal-thumbnails');
+        thumbGrid.innerHTML = '';
+        data.images.forEach((img, index) => {
+            const thumb = document.createElement('div');
+            thumb.className = `thumb ${index === 0 ? 'active' : ''}`;
+            thumb.style.backgroundImage = `url('${img}')`;
+            thumb.addEventListener('click', () => {
+                mainImg.style.backgroundImage = `url('${img}')`;
+                thumbGrid.querySelectorAll('.thumb').forEach(t => t.classList.remove('active'));
+                thumb.classList.add('active');
+            });
+            thumbGrid.appendChild(thumb);
+        });
+
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden'; // Prevent scroll
+    };
+
+    const closeModal = () => {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+    };
+
+    // Attach listeners to "Conocer mas" buttons
+    document.querySelectorAll('.product-card').forEach(card => {
+        const btn = card.querySelector('.btn-buy');
+        const productId = card.getAttribute('data-product');
+        if (btn && productId) {
+            // Replace existing alert listeners
+            btn.onclick = (e) => {
+                e.stopPropagation();
+                openModal(productId);
+            };
+        }
+    });
+
+    if (modalClose) modalClose.addEventListener('click', closeModal);
+    if (modalOverlay) modalOverlay.addEventListener('click', closeModal);
+
+    // Close on ESC key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeModal();
+    });
 });

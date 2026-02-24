@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cervecería Ñanco | El Sabor de la Naturaleza</title>
+    <title>Cervecería Ñanco</title>
+    <link rel="icon" type="image/x-icon" href="assets/img/logo.png">
     <meta name="description"
         content="Bienvenido a Ñanco, donde la tradición artesanal se encuentra con el sabor puro. Descubre nuestras cervezas y nuestra historia.">
     <!-- Google Fonts -->
@@ -36,25 +37,48 @@
 
     <main>
         <section id="inicio" class="hero">
-            <div class="hero-content">
-                <h1>Pureza en cada Trago.</h1>
-                <p>Elaboramos cervezas artesanales con ingredientes locales, inspirados en la majestuosidad del Ñanco.
-                </p>
-                <a href="#productos" class="btn-primary">Ver Cervezas</a>
+            <div class="container hero-grid">
+                <div class="hero-image-container fade-in">
+                    <div class="vintage-frame">
+                        <img src="assets/img/nanco_vintage.png" alt="Ñanco Vintage" class="hero-vintage-img">
+                    </div>
+                </div>
+                <div class="hero-text fade-in">
+                    <h1>Pureza en cada Trago.</h1>
+                    <p>Elaboramos cervezas artesanales con ingredientes locales, inspirados en la majestuosidad del
+                        Ñanco.</p>
+                    <p>Nuestra historia comienza en el corazón de las montañas, donde la pureza del agua y el respeto
+                        por el tiempo son los ingredientes principales. En Cervecería Ñanco, cada botella es un homenaje
+                        a la naturaleza y a la tradición artesanal.</p>
+                </div>
             </div>
         </section>
 
         <section id="nosotros" class="owners-section">
             <div class="container">
+                <div class="section-grid" style="margin-bottom: 6rem;">
+                    <div class="owners-text fade-in">
+                        <h2>Los Comienzos</h2>
+                        <p>Todo comenzó con la visión y sabiduría de <strong>Hugo</strong>, quien plantó la primera
+                            semilla de lo que hoy conocemos como Cervecería Ñanco. En sus manos, la cerveza dejó de ser
+                            solo una bebida para convertirse en un legado.</p>
+                        <p>Con paciencia y respeto por la tradición, Hugo nos enseñó que la calidad no admite atajos.
+                            Aquellos primeros lotes elaborados con el agua más pura sentaron las bases de nuestra
+                            identidad: honesta, robusta y auténtica.</p>
+                    </div>
+                    <div class="owners-img fade-in" style="box-shadow: -20px 20px 0 var(--secondary-brown);">
+                        <img src="assets/img/Hugo.jpeg" alt="Hugo - Los comienzos de Cervecería Ñanco">
+                    </div>
+                </div>
+
                 <div class="section-grid">
                     <div class="owners-img fade-in">
-                        <img src="https://images.unsplash.com/photo-1558235924-99692bb22d71?auto=format&fit=crop&q=80&w=800"
-                            alt="Dueños de la cervecería Ñanco">
+                        <img src="assets/img/Nico y Lore.jpeg" alt="Dueños de la cervecería Ñanco">
                     </div>
                     <div class="owners-text fade-in">
                         <h2>Nuestra Pasión</h2>
-                        <p>Somos un equipo de amigos apasionados por la cultura cervecera. Ñanco nació de un sueño en el
-                            corazón de las montañas, buscando recuperar la esencia de lo artesanal.</p>
+                        <p>Hoy, ese legado continúa con nosotros. Somos un equipo apasionado por la cultura cervecera
+                            que busca recuperar la esencia de lo artesanal en cada rincón del país.</p>
                         <p>Cada una de nuestras recetas ha sido perfeccionada durante años para ofrecerte una
                             experiencia única en cada botella. No solo hacemos cerveza, creamos momentos.</p>
                         <p><strong>- Nico y Lore</strong></p>
@@ -71,7 +95,7 @@
                 </div>
 
                 <div class="product-grid">
-                    <div class="product-card fade-in">
+                    <div class="product-card fade-in" data-product="golden">
                         <div class="product-img" style="background-image: url('assets/img/Birratirada.jpeg')">
                         </div>
                         <div class="product-info">
@@ -82,7 +106,7 @@
                         </div>
                     </div>
 
-                    <div class="product-card fade-in">
+                    <div class="product-card fade-in" data-product="ipa">
                         <div class="product-img" style="background-image: url('assets/img/Birratirada2.jpeg');">
                         </div>
                         <div class="product-info">
@@ -93,7 +117,7 @@
                         </div>
                     </div>
 
-                    <div class="product-card fade-in">
+                    <div class="product-card fade-in" data-product="stout">
                         <div class="product-img" style="background-image: url('assets/img/PintaMano.jpeg');">
                         </div>
                         <div class="product-info">
@@ -129,6 +153,17 @@
         </section>
     </main>
 
+    <!-- Floating Eagle Button (WhatsApp) -->
+    <a href="https://wa.me/5491112345678?text=Hola!%20Me%20gustaría%20hacer%20un%20pedido%20en%20Cervecería%20Ñanco"
+        class="eagle-float" target="_blank" rel="noopener noreferrer" title="Envíanos un mensaje">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2L9 9H3L8 13L6 20L12 16L18 20L16 13L21 9H15L12 2Z" fill="currentColor" />
+            <path d="M12 4.5L13.8 8.5H18.2L14.7 11.1L16 15.5L12 12.8L8 15.5L9.3 11.1L5.8 8.5H10.2L12 4.5Z" fill="white"
+                fill-opacity="0.3" />
+        </svg>
+        <span class="eagle-tooltip">Hablemos!</span>
+    </a>
+
     <footer>
         <div class="container">
             <div class="footer-grid">
@@ -158,6 +193,31 @@
             </div>
         </div>
     </footer>
+
+    <!-- Product Detail Modal -->
+    <div id="product-modal" class="modal">
+        <div class="modal-overlay"></div>
+        <div class="modal-container">
+            <button class="modal-close" id="modal-close">&times;</button>
+            <div class="modal-content">
+                <div class="modal-gallery">
+                    <div id="main-modal-img" class="main-img"></div>
+                    <div class="thumbnail-grid" id="modal-thumbnails">
+                        <!-- Thumbnails will be injected here -->
+                    </div>
+                </div>
+                <div class="modal-text">
+                    <h2 id="modal-title">Nombre de la Cerveza</h2>
+                    <p class="modal-price" id="modal-price">$0.000</p>
+                    <div class="modal-description" id="modal-description">
+                        <!-- Description will be injected here -->
+                    </div>
+                    <button class="btn-primary" style="margin-top: 2rem; border: none; cursor: pointer;">Reservar
+                        Pedido</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
