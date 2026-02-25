@@ -30,14 +30,47 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-    // Contact form submission
-    const contactForm = document.getElementById('contact-form');
-    if (contactForm) {
-        contactForm.addEventListener('submit', (e) => {
+    // Review form submission
+    const reviewForm = document.getElementById('review-form');
+    const reviewsContainer = document.getElementById('reviews-container');
+
+    if (reviewForm && reviewsContainer) {
+        reviewForm.addEventListener('submit', (e) => {
             e.preventDefault();
-            const name = contactForm.querySelector('input[type="text"]').value;
-            alert(`¡Gracias ${name}! Hemos recibido tu mensaje. Nos pondremos en contacto pronto.`);
-            contactForm.reset();
+
+            const name = document.getElementById('review-name').value;
+            const message = document.getElementById('review-message').value;
+            const ratingInput = reviewForm.querySelector('input[name="rating"]:checked');
+            const rating = ratingInput ? parseInt(ratingInput.value) : 5;
+
+            // Create stars string
+            const stars = '★'.repeat(rating) + '☆'.repeat(5 - rating);
+
+            // Create review element
+            const reviewCard = document.createElement('div');
+            reviewCard.className = 'review-card';
+            reviewCard.innerHTML = `
+                <div class="review-header">
+                    <strong>${name}</strong>
+                    <div class="stars">${stars}</div>
+                </div>
+                <p>"${message}"</p>
+                <span class="review-date">Recién publicado</span>
+            `;
+
+            // Add to container (at the top)
+            reviewsContainer.prepend(reviewCard);
+
+            // Success feedback (Toast)
+            const toast = document.getElementById('toast');
+            if (toast) {
+                toast.classList.add('show');
+                setTimeout(() => {
+                    toast.classList.remove('show');
+                }, 3000);
+            }
+
+            reviewForm.reset();
         });
     }
 

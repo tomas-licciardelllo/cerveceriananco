@@ -30,7 +30,7 @@
                 <li><a href="#inicio">Inicio</a></li>
                 <li><a href="#nosotros">Nosotros</a></li>
                 <li><a href="#productos">Productos</a></li>
-                <li><a href="#contacto">Contacto</a></li>
+                <li><a href="#reseñas">Reseñas</a></li>
             </ul>
         </nav>
     </header>
@@ -59,12 +59,15 @@
                 <div class="section-grid" style="margin-bottom: 6rem;">
                     <div class="owners-text fade-in">
                         <h2>Los Comienzos</h2>
-                        <p>Todo comenzó con la visión y sabiduría de <strong>Hugo</strong>, quien plantó la primera
-                            semilla de lo que hoy conocemos como Cervecería Ñanco. En sus manos, la cerveza dejó de ser
-                            solo una bebida para convertirse en un legado.</p>
-                        <p>Con paciencia y respeto por la tradición, Hugo nos enseñó que la calidad no admite atajos.
-                            Aquellos primeros lotes elaborados con el agua más pura sentaron las bases de nuestra
-                            identidad: honesta, robusta y auténtica.</p>
+                        <p>Somos una micro cervecería artesanal familiar que empezó como un pasatiempo en el año 2015,
+                            cuando <strong>Hugo</strong>, mí suegro,
+                            trajo a Luján los primeros "kits" y conocimientos desde Bariloche para hacer cerveza.</p>
+                        <p>Después de varios ensayos logramos hacer una cerveza que nos gustó y nos envalentonamos para
+                            empezar
+                            a comercializarla, primero en algunas ferias de la zona y luego a algunos bares, en ese
+                            momento,
+                            surgió el nombre Ñanco y esto empezaba a ser un sueño.
+                        </p>
                     </div>
                     <div class="owners-img fade-in" style="box-shadow: -20px 20px 0 var(--secondary-brown);">
                         <img src="assets/img/Hugo.jpeg" alt="Hugo - Los comienzos de Cervecería Ñanco">
@@ -77,10 +80,13 @@
                     </div>
                     <div class="owners-text fade-in">
                         <h2>Nuestra Pasión</h2>
-                        <p>Hoy, ese legado continúa con nosotros. Somos un equipo apasionado por la cultura cervecera
-                            que busca recuperar la esencia de lo artesanal en cada rincón del país.</p>
-                        <p>Cada una de nuestras recetas ha sido perfeccionada durante años para ofrecerte una
-                            experiencia única en cada botella. No solo hacemos cerveza, creamos momentos.</p>
+                        <p>En el 2017 lamentablemente perdimos a Hugo. El sueño de "Ñanco" casi claudicó, pero en ese
+                            momento Lore, mí esposa tomo la
+                            posta de su papá y se convirtió en una gran mujer cervecera con quién trabajamos codo a
+                            codo, día a día hasta el presente.</p>
+                        <p> Este proyecto jamás paró de crecer, cada vez nos despierta más amor y es por eso que nos
+                            esforzamos y capacitamos
+                            continuamente para ofrecerte un producto de calidad.</p>
                         <p><strong>- Nico y Lore</strong></p>
                     </div>
                 </div>
@@ -131,23 +137,48 @@
             </div>
         </section>
 
-        <section id="contacto" class="owners-section">
+        <section id="reseñas" class="reviews-section">
             <div class="container">
                 <div class="section-header fade-in">
-                    <h2>¿Hablamos?</h2>
-                    <p>Estamos aquí para escucharte o ayudarte con tu pedido.</p>
+                    <h2>¿Qué dicen nuestros clientes?</h2>
+                    <p>Compartí tu experiencia con Cervecería Ñanco.</p>
                 </div>
-                <div class="fade-in" style="max-width: 600px; margin: 0 auto;">
-                    <form id="contact-form" style="display: grid; gap: 1rem;">
-                        <input type="text" placeholder="Nombre" required
-                            style="padding: 1rem; border-radius: 10px; border: 1px solid #ddd;">
-                        <input type="email" placeholder="Email" required
-                            style="padding: 1rem; border-radius: 10px; border: 1px solid #ddd;">
-                        <textarea placeholder="Mensaje" rows="5" required
-                            style="padding: 1rem; border-radius: 10px; border: 1px solid #ddd;"></textarea>
-                        <button type="submit" class="btn-primary" style="border: none; cursor: pointer;">Enviar
-                            Mensaje</button>
-                    </form>
+
+                <div class="reviews-grid">
+                    <!-- Form Side -->
+                    <div class="review-form-container fade-in">
+                        <form id="review-form">
+                            <h3>Dejanos tu reseña</h3>
+                            <input type="text" id="review-name" placeholder="Tu nombre" required>
+                            <div class="rating-input">
+                                <span>Puntuación:</span>
+                                <div class="stars-selection">
+                                    <input type="radio" name="rating" value="5" id="star5" required><label
+                                        for="star5">★</label>
+                                    <input type="radio" name="rating" value="4" id="star4"><label for="star4">★</label>
+                                    <input type="radio" name="rating" value="3" id="star3"><label for="star3">★</label>
+                                    <input type="radio" name="rating" value="2" id="star2"><label for="star2">★</label>
+                                    <input type="radio" name="rating" value="1" id="star1"><label for="star1">★</label>
+                                </div>
+                            </div>
+                            <textarea id="review-message" placeholder="Tu mensaje" rows="4" required></textarea>
+                            <button type="submit" class="btn-primary">Publicar Reseña</button>
+                        </form>
+                    </div>
+
+                    <!-- Display Side -->
+                    <div class="reviews-display fade-in" id="reviews-container">
+                        <!-- Sample Review -->
+                        <div class="review-card">
+                            <div class="review-header">
+                                <strong>Martin G.</strong>
+                                <div class="stars">★★★★★</div>
+                            </div>
+                            <p>"La Golden Ale es increíble, la mejor de la zona. Se nota la calidad de los
+                                ingredientes."</p>
+                            <span class="review-date">Hace 2 días</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -156,11 +187,7 @@
     <!-- Floating Eagle Button (WhatsApp) -->
     <a href="https://wa.me/5491112345678?text=Hola!%20Me%20gustaría%20hacer%20un%20pedido%20en%20Cervecería%20Ñanco"
         class="eagle-float" target="_blank" rel="noopener noreferrer" title="Envíanos un mensaje">
-        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12 2L9 9H3L8 13L6 20L12 16L18 20L16 13L21 9H15L12 2Z" fill="currentColor" />
-            <path d="M12 4.5L13.8 8.5H18.2L14.7 11.1L16 15.5L12 12.8L8 15.5L9.3 11.1L5.8 8.5H10.2L12 4.5Z" fill="white"
-                fill-opacity="0.3" />
-        </svg>
+        <img src="assets/img/wapblack.webp" alt="WhatsApp" class="eagle-icon">
         <span class="eagle-tooltip">Hablemos!</span>
     </a>
 
@@ -212,12 +239,14 @@
                     <div class="modal-description" id="modal-description">
                         <!-- Description will be injected here -->
                     </div>
-                    <button class="btn-primary" style="margin-top: 2rem; border: none; cursor: pointer;">Reservar
-                        Pedido</button>
+                    <button class="btn-primary modal-buy-btn">Reservar Pedido</button>
                 </div>
             </div>
         </div>
     </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast">Gracias por tu colaboracion, nos vemos pronto!</div>
 
     <script src="script.js"></script>
 </body>
